@@ -33,20 +33,20 @@ public class FileService implements IFileService {
     @PostConstruct
     public void init() throws Exception {
         minioClient = new MinioClient(ossConfig.getEndpoint(), ossConfig.getKey(), ossConfig.getSecret());
-        checkBucket(ossConfig.getBucket());
+        // checkBucket(ossConfig.getBucket());
     }
 
     private void checkBucket(String bucket) throws Exception {
-//        try {
-//            boolean found = minioClient.bucketExists(bucket);
-//            if (!found) {
-//                minioClient.makeBucket(bucket);
-//                System.out.println(bucket + " is created successfully");
-//            }
-//
-//        } catch (MinioException e) {
-//            System.out.println("Error occurred: " + e);
-//        }
+        try {
+            boolean found = minioClient.bucketExists(bucket);
+            if (!found) {
+                minioClient.makeBucket(bucket);
+                System.out.println(bucket + " is created successfully");
+            }
+
+        } catch (MinioException e) {
+            System.out.println("Error occurred: " + e);
+        }
     }
 
     @Override
