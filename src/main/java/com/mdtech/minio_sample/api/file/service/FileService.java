@@ -37,16 +37,16 @@ public class FileService implements IFileService {
     }
 
     private void checkBucket(String bucket) throws Exception {
-        try {
-            boolean found = minioClient.bucketExists(bucket);
-            if (!found) {
-                minioClient.makeBucket(bucket);
-                System.out.println(bucket + " is created successfully");
-            }
-
-        } catch (MinioException e) {
-            System.out.println("Error occurred: " + e);
-        }
+//        try {
+//            boolean found = minioClient.bucketExists(bucket);
+//            if (!found) {
+//                minioClient.makeBucket(bucket);
+//                System.out.println(bucket + " is created successfully");
+//            }
+//
+//        } catch (MinioException e) {
+//            System.out.println("Error occurred: " + e);
+//        }
     }
 
     @Override
